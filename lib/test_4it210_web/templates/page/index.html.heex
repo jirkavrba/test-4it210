@@ -1,41 +1,41 @@
-<section class="phx-hero">
-  <h1>Welcome to Phoenix!</h1>
-  <p>Peace of mind from prototype to production</p>
-</section>
+<section>
+  <h1>Výpočet entropie a informačního zisku (ID3)</h1>
+  <table>
+    <thead>
+      <tr>
+        <%= for attribute <- @entropy_question.dataset.attributes do %>
+          <th><%= attribute %></th>
+        <% end %>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for row <- @entropy_question.dataset.rows do %>
+        <tr>
+          <%= for attribute <- @entropy_question.dataset.attributes do %>
+            <td><%= if row[attribute], do: "T", else: "F" %></td>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 
-<section class="row">
-  <article class="column">
-    <h2>Resources</h2>
-    <ul>
-      <li>
-        <a href="https://hexdocs.pm/phoenix/overview.html">Guides &amp; Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix/blob/v1.6/CHANGELOG.md">v1.6 Changelog</a>
-      </li>
-    </ul>
-  </article>
-  <article class="column">
-    <h2>Help</h2>
-    <ul>
-      <li>
-        <a href="https://elixirforum.com/c/phoenix-forum">Forum</a>
-      </li>
-      <li>
-        <a href="https://web.libera.chat/#elixir">#elixir on Libera Chat (IRC)</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">Twitter @elixirphoenix</a>
-      </li>
-      <li>
-        <a href="https://elixir-slackin.herokuapp.com/">Elixir on Slack</a>
-      </li>
-      <li>
-        <a href="https://discord.gg/elixir">Elixir on Discord</a>
-      </li>
-    </ul>
-  </article>
+  <section class="question">
+      <p>Jaká je entropie datasetu pro cílový atribut <strong><%= @entropy_question.dataset.class_attribute %></strong>?</p>
+      <details>
+        <summary>Odpověď</summary>
+        <h1><%= @entropy_question.entropy %></h1>
+      </details>
+  </section>
+
+  <section class="question">
+      <p>Jaká je hodnota informačního zisku, který by vrátil algoritmus ID3 pro atribut 
+          <strong><%= @entropy_question.selected_attribute %></strong>
+          při jeho použití jako kořenového atributu?
+      </p>
+      <details>
+        <summary>Odpověď</summary>
+        <h1><%= @entropy_question.information_gain %></h1>
+      </details>
+  </section>
+
 </section>
