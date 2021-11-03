@@ -166,4 +166,17 @@
       <strong><%= @confusion_matrix_question.accuracy %></strong>
     </details>
   </section>
+
+  <h1>Euklidovská vzdálenost</h1>
+  <section class="question">
+    <p>
+      Jaká je Euklidovská vzdálenost mezi body 
+      <strong>[<%= Enum.join(@euclidean_distance_question.first_vector, ", ") %>]</strong> a
+      <strong>[<%= Enum.join(@euclidean_distance_question.second_vector, ", ") %>]</strong>?
+    </p>
+    <details>
+      <summary>Odpověď</summary>
+      <strong><%= @euclidean_distance_question.distance %></strong>
+    </details>
+  </section>
 </section>
