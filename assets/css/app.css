@@ -22,3 +22,9 @@ table td {
 section.question {
   margin-bottom: 3rem;
 }
+
+details {
+  background: #dddddd;
+  padding: 1rem;
+  cursor: pointer;
+}
