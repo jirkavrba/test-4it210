@@ -35,8 +35,8 @@ defmodule Test4it210.AssociationRule do
   end
 
   @spec compute_confidence(ContingencyTable.t()) :: float()
-  defp compute_confidence(%ContingencyTable{a_c: a_c, not_a_not_c: not_a_not_c} = table) do
-      (a_c + not_a_not_c) / compute_total(table)
+  defp compute_confidence(%ContingencyTable{a_c: a_c, a_not_c: a_not_c}) do
+      a_c / (a_c + a_not_c)
   end
 
   @spec compute_support(ContingencyTable.t()) :: float()
