@@ -83,4 +83,87 @@
       </details>
   </section>
 
+  <h1>Evaluace klasifikátoru</h1>
+  
+  <p>Natrénovaný klasifikátor vrátil pro testovací data tyto výsledky:</p>
+  <table>
+    <thead>
+      <tr>
+        <th>ID instance</th>
+        <th>Skutečnost</th>
+        <th>Predikce</th>
+      </tr>
+    </thead>
+    <tbody>
+      <%= for row <- @confusion_matrix_question.results do %>
+        <tr>
+          <td><%= row.id %></td>
+          <td><%= if row.reality, do: "ANO", else: "NE" %></td>
+          <td><%= if row.prediction, do: "ANO", else: "NE" %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <details>
+    <summary>Matice záměn</summary>
+    <table>
+      <thead>
+        <tr>
+          <td colspan="2"></td>
+          <th colspan="2">Skutečnost</th>
+        </tr>
+        <tr>
+          <td colspan="2"></td>
+          <th>ANO</th>
+          <th>NE</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th rowspan="2">Predikce</th>
+          <th>ANO</th>
+          <td><%= @confusion_matrix_question.confusion_matrix.true_positive %></td>
+          <td><%= @confusion_matrix_question.confusion_matrix.false_positive %></td>
+        </tr>
+        <tr>
+          <th>NE</th>
+          <td><%= @confusion_matrix_question.confusion_matrix.false_negative %></td>
+          <td><%= @confusion_matrix_question.confusion_matrix.true_negative %></td>
+        </tr>
+      </tbody>
+    </table>
+  </details>
+
+  <section class="question">
+    <p>
+      Jaká je hodnota míry <strong>přesnost</strong> (precision) pro třídu 
+      <strong><%= if @confusion_matrix_question.precision_class, do: "ANO", else: "NE" %></strong>
+      daného klasifikátoru?
+    </p>
+    <details>
+      <summary>Odpověď</summary>
+      <strong><%= @confusion_matrix_question.precision %></strong>
+    </details>
+  </section>
+
+  <section class="question">
+    <p>
+      Jaká je hodnota míry <strong>úplnost</strong> (recall) pro třídu 
+      <strong><%= if @confusion_matrix_question.recall_class, do: "ANO", else: "NE" %></strong>
+      daného klasifikátoru?
+    </p>
+    <details>
+      <summary>Odpověď</summary>
+      <strong><%= @confusion_matrix_question.recall %></strong>
+    </details>
+  </section>
+
+  <section class="question">
+    <p>Jaká je celková <strong>správnost</strong> (accuracy) daného klasifikátoru?</p>
+    <details>
+      <summary>Odpověď</summary>
+      <strong><%= @confusion_matrix_question.accuracy %></strong>
+    </details>
+  </section>
 </section>
