@@ -1,5 +1,6 @@
 <section>
   <h1>Výpočet entropie a informačního zisku (ID3)</h1>
+
   <table>
     <thead>
       <tr>
@@ -23,7 +24,7 @@
       <p>Jaká je entropie datasetu pro cílový atribut <strong><%= @entropy_question.dataset.class_attribute %></strong>?</p>
       <details>
         <summary>Odpověď</summary>
-        <h1><%= @entropy_question.entropy %></h1>
+        <strong><%= @entropy_question.entropy %></strong>
       </details>
   </section>
 
@@ -34,7 +35,51 @@
       </p>
       <details>
         <summary>Odpověď</summary>
-        <h1><%= @entropy_question.information_gain %></h1>
+        <strong><%= @entropy_question.information_gain %></strong>
+      </details>
+  </section>
+
+  <h1>Asociační pravidla</h1>
+
+  <table>
+    <tr>
+      <td></td>
+      <th>Consequent</th>
+      <th>&not; Consequent</th>
+    </tr>
+    <tr>
+      <th>Antecedent</th>
+      <td><%= @association_rule_question.contingency_table.a_c %></td>
+      <td><%= @association_rule_question.contingency_table.a_not_c %></td>
+    </tr>
+    <tr>
+      <th>&not; Antecedent</th>
+      <td><%= @association_rule_question.contingency_table.not_a_c %></td>
+      <td><%= @association_rule_question.contingency_table.not_a_not_c %></td>
+    </tr>
+  </table>
+
+  <section class="question">
+      <p>Jaká je hodnota míry <strong>spolehlivosti</strong> (confidence)?</p>
+      <details>
+        <summary>Odpověď</summary>
+        <strong><%= @association_rule_question.confidence %></strong>
+      </details>
+  </section>
+
+  <section class="question">
+      <p>Jaká je hodnota míry relativní <strong>podpora</strong> (support)?</p>
+      <details>
+        <summary>Odpověď</summary>
+        <strong><%= @association_rule_question.support %></strong>
+      </details>
+  </section>
+
+  <section class="question">
+      <p>Jaká je hodnota míry <strong>lift</strong>?</p>
+      <details>
+        <summary>Odpověď</summary>
+        <strong><%= @association_rule_question.lift %></strong>
       </details>
   </section>
 
