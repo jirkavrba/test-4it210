@@ -24,7 +24,7 @@
       <p>Jaká je entropie datasetu pro cílový atribut <strong><%= @entropy_question.dataset.class_attribute %></strong>?</p>
       <details>
         <summary>Odpověď</summary>
-        <strong><%= round_number(@entropy_question.entropy) %></strong>
+        <strong><%= @entropy_question.entropy %></strong>
       </details>
   </section>
 
@@ -35,7 +35,7 @@
       </p>
       <details>
         <summary>Odpověď</summary>
-        <strong><%= round_number(@entropy_question.information_gain) %></strong>
+        <strong><%= @entropy_question.information_gain %></strong>
       </details>
   </section>
 
@@ -63,7 +63,7 @@
       <p>Jaká je hodnota míry <strong>spolehlivosti</strong> (confidence)?</p>
       <details>
         <summary>Odpověď</summary>
-        <strong><%= round_number(@association_rule_question.confidence) %></strong>
+        <strong><%= @association_rule_question.confidence %></strong>
       </details>
   </section>
 
@@ -71,7 +71,7 @@
       <p>Jaká je hodnota míry relativní <strong>podpora</strong> (support)?</p>
       <details>
         <summary>Odpověď</summary>
-        <strong><%= round_number(@association_rule_question.support) %></strong>
+        <strong><%= @association_rule_question.support %></strong>
       </details>
   </section>
 
@@ -79,7 +79,7 @@
       <p>Jaká je hodnota míry <strong>lift</strong>?</p>
       <details>
         <summary>Odpověď</summary>
-        <strong><%= round_number(@association_rule_question.lift) %></strong>
+        <strong><%= @association_rule_question.lift %></strong>
       </details>
   </section>
 
@@ -143,7 +143,7 @@
     </p>
     <details>
       <summary>Odpověď</summary>
-      <strong><%= round_number(@confusion_matrix_question.precision) %></strong>
+      <strong><%= @confusion_matrix_question.precision %></strong>
     </details>
   </section>
 
@@ -155,7 +155,7 @@
     </p>
     <details>
       <summary>Odpověď</summary>
-      <strong><%= round_number(@confusion_matrix_question.recall) %></strong>
+      <strong><%= @confusion_matrix_question.recall %></strong>
     </details>
   </section>
 
@@ -163,7 +163,7 @@
     <p>Jaká je celková <strong>správnost</strong> (accuracy) daného klasifikátoru?</p>
     <details>
       <summary>Odpověď</summary>
-      <strong><%= round_number(@confusion_matrix_question.accuracy) %></strong>
+      <strong><%= @confusion_matrix_question.accuracy %></strong>
     </details>
   </section>
 
@@ -176,7 +176,7 @@
     </p>
     <details>
       <summary>Odpověď</summary>
-      <strong><%= round_number(@euclidean_distance_question.distance) %></strong>
+      <strong><%= @euclidean_distance_question.distance %></strong>
     </details>
   </section>
 </section>
